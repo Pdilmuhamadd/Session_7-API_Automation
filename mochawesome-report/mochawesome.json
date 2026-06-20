@@ -1,0 +1,121 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-06-20T13:33:14.411Z",
+    "end": "2026-06-20T13:33:15.730Z",
+    "duration": 1319,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f7f976d5-5785-4b73-b825-aa95f469142d",
+      "title": "",
+      "fullFile": "D:\\coursedll\\DigitalSkola - SQA\\Homework Sesi 7\\tests\\api\\sesi7.test.js",
+      "file": "\\tests\\api\\sesi7.test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "fb014e1e-9992-4719-a8ff-efb6249b1f39",
+          "title": "API Tests Suite",
+          "fullFile": "D:\\coursedll\\DigitalSkola - SQA\\Homework Sesi 7\\tests\\api\\sesi7.test.js",
+          "file": "\\tests\\api\\sesi7.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "READ - Get Single User",
+              "fullTitle": "API Tests Suite READ - Get Single User",
+              "timedOut": false,
+              "duration": 945,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await fetch(`${baseURL}/api/users?page=2`,{\n    method:\"GET\",\n    headers:{\n        \"x-api-key\":\"reqres_6f7e67c8dd9d47fe91502d3adcf24a46\"\n    }\n})\n\nexpect(response.status).to.equal(200);\nconst ajv = new Ajv();\nconst data = await response.json();\nconst cek = ajv.compile(schema_getuser);\nconst hasil = cek(data);\nexpect(hasil, \"Validasi JSON Schema GET ada yang salah\").to.be.true;",
+              "err": {},
+              "uuid": "8a95a2cf-a088-4502-8064-8be9b5113017",
+              "parentUUID": "fb014e1e-9992-4719-a8ff-efb6249b1f39",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "CREATE - Create User Baru",
+              "fullTitle": "API Tests Suite CREATE - Create User Baru",
+              "timedOut": false,
+              "duration": 366,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const newPost = {\n    name: \"Pratama\",\n    job: \"Software Engineer\"\n}\nconst response = await fetch(`${baseURL}/api/users`,{\n    method:\"POST\",\n        headers:{\n            \"Content-Type\":\"application/json\",\n            \"x-api-key\":\"reqres_6f7e67c8dd9d47fe91502d3adcf24a46\"\n        },\n        body: JSON.stringify(newPost)\n})\nexpect(response.status).to.equal(201)\n// validasi JSON Schema\nconst ajv = new Ajv()\nconst data = await response.json()\nconst cek = ajv.compile(schema_createuser)\nconst hasil = cek(data)\nexpect(hasil, \"Validasi JSON Schema POST ada yang salah\").to.be.true",
+              "err": {},
+              "uuid": "24e2cc26-556c-4c69-a815-037444d5e38a",
+              "parentUUID": "fb014e1e-9992-4719-a8ff-efb6249b1f39",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8a95a2cf-a088-4502-8064-8be9b5113017",
+            "24e2cc26-556c-4c69-a815-037444d5e38a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1311,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 60000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 60000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.8.2"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "output": "hasil-sesi7.html"
+      },
+      "version": "6.3.2"
+    }
+  }
+}

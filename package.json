@@ -1,0 +1,20 @@
+{
+    "name": "api-automation-digitalskola",
+    "version": "1.0.0",
+    "type": "module",
+    "description": "Tugas Sesi 7 API Automation using Mocha",
+    "scripts": {
+        "sesi7": "mocha tests/api/sesi7.test.js --recursive --timeout 60000",
+        "sesi7_generate-report": "mocha tests/api/sesi7.test.js --recursive --timeout 60000 --reporter mochawesome --reporter-options output=hasil-sesi7.html"
+    },
+    "dependencies":{
+        "node-fetch": "^3.3.1",
+        "ajv": "^8.12.0"
+    },
+    "devDependencies": {
+        "mocha": "^10.4.0",
+        "mochawesome": "^7.1.3",
+        "exceljs": "^4.3.0",
+        "chai": "^4.3.7"
+    }
+}
